@@ -41,24 +41,15 @@ Example:
 
 ```
 $ curl -v '127.0.0.1/echo/foo/bar' -H 'Content-Type: application/json' -d '{"status":"OK"}'
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to 127.0.0.1 (127.0.0.1) port 80 (#0)
 > POST /echo/foo/bar HTTP/1.1
 > Host: 127.0.0.1
-> User-Agent: curl/7.54.0
-> Accept: */*
 > Content-Type: application/json
-> Content-Length: 15
 >
-* upload completely sent off: 15 out of 15 bytes
 < HTTP/1.1 200 OK
 < Content-Type: text/plain; charset=utf-8
 < X-Hostname: utilityknife-6499f48f79-tnpzd
 < X-Ip: 10.1.0.73
 < X-Served-By: weters/utilityknife
-< Date: Fri, 04 Jan 2019 05:27:19 GMT
-< Content-Length: 153
 <
 POST /echo/foo/bar HTTP/1.1
 Host: 127.0.0.1
@@ -67,7 +58,6 @@ Content-Length: 15
 Content-Type: application/json
 User-Agent: curl/7.54.0
 
-* Connection #0 to host 127.0.0.1 left intact
 {"status":"OK"}
 ```
 
@@ -79,84 +69,44 @@ Example:
 
 ```
 $ curl -v '127.0.0.1/data/key1' -d 'bar' -X PUT
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to 127.0.0.1 (127.0.0.1) port 80 (#0)
 > PUT /data/key1 HTTP/1.1
 > Host: 127.0.0.1
-> User-Agent: curl/7.54.0
-> Accept: */*
-> Content-Length: 3
 > Content-Type: application/x-www-form-urlencoded
 >
-* upload completely sent off: 3 out of 3 bytes
 < HTTP/1.1 201 Created
 < X-Hostname: utilityknife-6499f48f79-tl4b5
 < X-Ip: 10.1.0.74
 < X-Served-By: weters/utilityknife
-< Date: Fri, 04 Jan 2019 05:34:07 GMT
-< Content-Length: 0
-<
-* Connection #0 to host 127.0.0.1 left intact
  
 $ curl -v '127.0.0.1/data/key2' -d '["bar1","bar2"]' -H 'Content-Type: application/json' -X PUT
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to 127.0.0.1 (127.0.0.1) port 80 (#0)
 > PUT /data/key2 HTTP/1.1
 > Host: 127.0.0.1
-> User-Agent: curl/7.54.0
-> Accept: */*
 > Content-Type: application/json
-> Content-Length: 15
 >
-* upload completely sent off: 15 out of 15 bytes
 < HTTP/1.1 201 Created
 < X-Hostname: utilityknife-6499f48f79-tl4b5
 < X-Ip: 10.1.0.74
 < X-Served-By: weters/utilityknife
-< Date: Fri, 04 Jan 2019 05:34:10 GMT
-< Content-Length: 0
-<
-* Connection #0 to host 127.0.0.1 left intact
 
 $ curl -v '127.0.0.1/data/key1'
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to 127.0.0.1 (127.0.0.1) port 80 (#0)
 > GET /data/key1 HTTP/1.1
 > Host: 127.0.0.1
-> User-Agent: curl/7.54.0
-> Accept: */*
 >
 < HTTP/1.1 200 OK
 < Content-Type: application/x-www-form-urlencoded
 < X-Hostname: utilityknife-6499f48f79-tnpzd
 < X-Ip: 10.1.0.73
 < X-Served-By: weters/utilityknife
-< Date: Fri, 04 Jan 2019 05:34:11 GMT
-< Content-Length: 3
-<
-* Connection #0 to host 127.0.0.1 left intact
 bar%
 
 $ curl -v '127.0.0.1/data/key2'
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to 127.0.0.1 (127.0.0.1) port 80 (#0)
 > GET /data/key2 HTTP/1.1
 > Host: 127.0.0.1
-> User-Agent: curl/7.54.0
-> Accept: */*
 >
 < HTTP/1.1 200 OK
 < Content-Type: application/json
 < X-Hostname: utilityknife-6499f48f79-tnpzd
 < X-Ip: 10.1.0.73
 < X-Served-By: weters/utilityknife
-< Date: Fri, 04 Jan 2019 05:34:13 GMT
-< Content-Length: 15
-<
-* Connection #0 to host 127.0.0.1 left intact
 ["bar1","bar2"]%
 ````
