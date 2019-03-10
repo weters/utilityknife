@@ -156,6 +156,7 @@ func (s *Service) echoHandler() http.HandlerFunc {
 			log.Printf("error: could not dump request: %v", err)
 		}
 
+		log.Println(string(dump))
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		w.Write(dump)
 	}
